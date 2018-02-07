@@ -16,27 +16,27 @@
 'use strict';
 
 // [START app]
-var mysql = require('mysql');
+//var mysql = require('mysql');
 const express = require('express');
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var data,namear =[];
 const app = express();
 var fs = require('fs');
 var THREE = require('three');
-var StlReader = require('stl-reader');
+//var StlReader = require('stl-reader');
 var StlExporter = require('./js/StlExporter.js');
 var NodeStl = require('./js/nodestl.js');
-var bodyParser = require('body-parser');
-var MockBrowser = require('mock-browser').mocks.MockBrowser;
-var mock = new MockBrowser();
-var document = MockBrowser.createDocument();
-var window = MockBrowser.createWindow();
+//var bodyParser = require('body-parser');
+//var MockBrowser = require('mock-browser').mocks.MockBrowser;
+//var mock = new MockBrowser();
+//var document = MockBrowser.createDocument();
+//var window = MockBrowser.createWindow();
 console.log(NodeStl);
 var Volume = 0;
 //REST API
 //var express     = require('express');      
 //var app         = express();    
-var bodyParser  = require('body-parser');
+//var bodyParser  = require('body-parser');
 var router = express.Router();
 var stl;
 //var gl = require('gl')(1,1); //headless-gl
@@ -87,8 +87,8 @@ request(requestSettings, function(error, response, body) {
 });
 
 ////////////////////////////////////////////////////////////////////////////
-var STLLoader = require('three-stl-loader')(THREE)
-  var loader = new STLLoader();
+//var STLLoader = require('three-stl-loader')(THREE)
+//  var loader = new STLLoader();
  
 /*loader.load('https://myindustryworld.com/z/designs/15files/1520171004oo.stl', function (geometry) {
 	console.log('stl Loaded...');
@@ -96,7 +96,7 @@ var STLLoader = require('three-stl-loader')(THREE)
   var meshz = new THREE.Mesh(geometry, materialz)
   scene.add(meshz)
 })*/
-var STLLoader = require('./js/stlload.js');
+//var STLLoader = require('./js/stlload.js');
 var volume = require('./js/volume.js');
 var Mesh;
 //function listFiles(bucketName) {
@@ -184,20 +184,7 @@ var vol = volume.calculateVolume(cube);
 console.log(vol);
 };
 var file = 'https://myindustryworld.com/z/designs/15files/1520171004oo.stl';
-//var file = 'C:\Users\SMART\Desktop\nodejs-docs-samples-master\appengine\hello-world\cube.stl';
-//var loader = new STLLoader.STLLoader();
-//loader.load( file, param);
-//saveSTL(scene,"temp.stl");
-//var loader = new STLLoader.STLLoader();
-/*loader.load('cube.stl', function (geometry) {
-  var cube = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
-scene.add(cube);
-console.log("param loaded..");
-//renderer = new THREE.WebGLRenderer({antialias: true,preserveDrawingBuffer: true});
-//console.log(renderer.domElement);
-var vol = volume.calculateVolume(cube);
-console.log(vol);
-}); */
+
  function animate() {
                  
                 requestAnimationFrame( animate );
@@ -218,72 +205,3 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
-// [END app]
-/*  const Storage = require('@google-cloud/storage');
-const projectId = 'useful-academy-190618';
-  // Creates a client
-  const storage = new Storage({
-  projectId: projectId,
-  keyFilename: 'C:\Users\SMART\Desktop\nodejs-docs-samples-master\appengine\hello-world\My First Project-89026bf31ce9.json'
-});
-
-  // * TODO(developer): Uncomment the following line before running the sample.
-
-  const bucketName = 'miwbuc';
-
-  // Lists files in the bucket
-  storage
-    .bucket(bucketName)
-    .getFiles()
-    .then(results => {
-      const files = results[0];
-
-      console.log('Files:');
-      files.forEach(file => {
-        console.log(file.name);
-      });
-    })
-    .catch(err => {
-      console.error('ERROR:', err);
-    });
-  // [END storage_list_files]
-//}
-
-function uploadFile(bucketName, filename) {
-  // [START storage_upload_file]
-  // Imports the Google Cloud client library
-  const Storage = require('@google-cloud/storage');
-
-  // Creates a client
-  const storage = new Storage();
-
- 
- // TODO(developer): Uncomment the following lines before running the sample.
-  
-  // const bucketName = 'Name of a bucket, e.g. my-bucket';
-  // const filename = 'Local file to upload, e.g. ./local/path/to/file.txt';
-
-  // Uploads a local file to the bucket
-  storage
-    .bucket(bucketName)
-    .upload(filename)
-    .then(() => {
-      console.log(`${filename} uploaded to ${bucketName}.`);
-    })
-    .catch(err => {
-      console.error('ERROR:', err);
-    });
-  // [END storage_upload_file]
-}
-
- 
-
-
-/*con.connect(function(err) {
-  if (err) throw err;
-  con.query("SELECT * FROM user", function (err, result, fields) {
-    if (err) throw err;
-	{ console.log(result[0].name);for(var i=0;i< result.length ;i++){namear[i] = result[i].name+'\n';} }
-  });
-});
-*/
